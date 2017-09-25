@@ -8,34 +8,45 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Adam extends Actor
 {
-     int koszyczek=0;
+    int x=5;
+    int koszyczek=0;
+    
     public void kibel()
-         {
-         if(isTouching(Toaleta.class)) koszyczek=0;
-         }
-  
+    {
+        if(isTouching(Toaleta.class)) koszyczek=0;
+    }
+
     public void jedzenie()
     {
-        if(isTouching(Apple.class))
-        removeTouching(Apple.class);
+        if (isTouching (Apple.class))
+            if (koszyczek < 5)
+            {
+                removeTouching (Apple.class);
+                koszyczek++;
+            }
     }
-        public void klawisze()
+
+    public void klawisze()
     {
-        if(Greenfoot.isKeyDown("d"))move (5);
-        if(Greenfoot.isKeyDown("a"))move (-5);
+        if(Greenfoot.isKeyDown("z"))x=x+5;
+        if(Greenfoot.isKeyDown("x"))x=5;
+        if(Greenfoot.isKeyDown("c"))x=x-5;
+        if(Greenfoot.isKeyDown("d"))move (x);
+        if(Greenfoot.isKeyDown("a"))move (-x);
         if(Greenfoot.isKeyDown("w"))
         {
             turn(-90);
-            move (5);
+            move (x);
             turn(90);
         }
-         if(Greenfoot.isKeyDown("s"))
+        if(Greenfoot.isKeyDown("s"))
         {
             turn(90);
-            move (5);
+            move (x);
             turn(-90);
         }
     }
+
     /**
      * Act - do whatever the Adam wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -43,8 +54,10 @@ public class Adam extends Actor
     public void act() 
     {
         // Add your action code here.
-       klawisze();
-       jedzenie();
-       kibel();
+        klawisze();
+        jedzenie();
+        kibel();
+        
+
     }    
 }

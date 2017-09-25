@@ -13,11 +13,13 @@ public class MyWorld extends World
      * Constructor for objects of class MyWorld.
      * 
      */
+    public void showText(java.lang.String text,int x,int y){}
     public MyWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(1500, 800, 1); 
         prepare();
+        
     }
 
     /**
