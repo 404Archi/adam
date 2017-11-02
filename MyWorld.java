@@ -38,13 +38,7 @@ public class MyWorld extends World
                 int y = Greenfoot.getRandomNumber(wysokosc);
                 Snake snake = new Snake ();
                 addObject(snake, x, y);
-                while(snake.dotykaAdama())
-                {
-                    x = Greenfoot.getRandomNumber(szerokosc);
-                    y = Greenfoot.getRandomNumber(wysokosc);
-                    snake.setLocation(x,y);
-                }
-                while(snake.dotykaEwe())
+                while(snake.dotykaAdama()||snake.dotykaEwe())
                 {
                     x = Greenfoot.getRandomNumber(szerokosc);
                     y = Greenfoot.getRandomNumber(wysokosc);
